@@ -1,25 +1,12 @@
-const user = () => {
-  return {
-    id: 'a1b2hmg34mdms',
-    userName: 'Dayan',
-  };
+const users = async (_, __, { getUsers }) => {
+  const users = await getUsers();
+  return users.json();
 };
 
-const users = () => {
-  return [
-    {
-      id: 'a1b2hmg34hdms',
-      userName: 'Dayan',
-    },
-    {
-      id: 'b2b2hmg26hlvf',
-      userName: 'Laryssa',
-    },
-    {
-      id: 'c3b2hmg34hpvm',
-      userName: 'Pietra',
-    },
-  ];
+const user = async (_, { id }, { getUsers }) => {
+  const response = await getUsers('/' + id);
+  const user = await response.json();
+  return user;
 };
 
 export const userResolvers = {
