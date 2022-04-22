@@ -5,7 +5,6 @@ export const userTypeDefs = gql`
     user(id: ID!): User!
     users(input: ApiFiltersInput): [User!]!
   }
-
   type User {
     id: ID!
     firstName: String!
@@ -13,6 +12,6 @@ export const userTypeDefs = gql`
     userName: String!
     indexRef: Int!
     createdAt: String!
-    # posts: [Post!]!
+    posts: [Post!]!
   }
 `;
