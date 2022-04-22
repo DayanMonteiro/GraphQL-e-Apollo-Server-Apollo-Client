@@ -5,28 +5,36 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon -r sucrase/register src/index.js",
-    "server": "json-server --watch db.json"
+    "dev": "nodemon -e 'js' -r dotenv/config -r sucrase/register src/index.js",
+    "server": "json-server --watch db.json",
+    "build": "rimraf ./dist && sucrase ./src -d ./dist --transforms imports",
+    "start": "npm run server & node -r dotenv/config dist/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-server": "^2.23.0",
-    "graphql": "^15.5.0",
-    "json-server": "^0.17.0",
+    "apollo-datasource": "^0.9.0",
+    "apollo-datasource-rest": "^0.13.0",
+    "apollo-server": "2.23.0",
+    "apollo-server-caching": "^0.7.0",
+    "bcrypt": "^5.0.1",
+    "dataloader": "^2.0.0",
+    "dotenv": "^8.5.1",
+    "graphql": "15.5.0",
+    "json-server": "^0.16.3",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.95.6",
+    "mysql": "^2.18.1",
     "node-fetch": "^2.6.1",
-    "nodemon": "^2.0.15"
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.20.0",
-    "@typescript-eslint/parser": "^5.20.0",
-    "eslint": "^8.13.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.4.0",
-    "prettier": "^2.6.2",
-    "sucrase": "^3.21.0"
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "sucrase": "^3.18.1"
   }
 }
