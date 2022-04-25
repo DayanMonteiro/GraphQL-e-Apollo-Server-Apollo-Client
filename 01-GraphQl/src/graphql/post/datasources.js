@@ -9,10 +9,14 @@ export class PostsApi extends RESTDataSource {
 
   async getPosts(urlParams = {}) {
     // '', é o primeiro parametro que é o caminho no caso a API_URL
-    return this.get('', urlParams);
+    return this.get('', urlParams, {
+      cacheOptions: { ttl: 60 },
+    });
   }
 
   async getPost(id) {
-    return this.get(id);
+    return this.get(id, undefined, {
+      cacheOptions: { ttl: 60 },
+    });
   }
 }
