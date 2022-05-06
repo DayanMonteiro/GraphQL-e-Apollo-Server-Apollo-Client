@@ -1,12 +1,21 @@
+// import DataLoader from 'dataloader';
+
+// export const makeUserDataLoader = (getUsers) => {
+//   return new DataLoader(async (ids) => {
+//     const urlQuery = ids.join('&id=');
+//     const users = await getUsers('?id=' + urlQuery);
+//     return ids.map((id) => users.find((user) => user.id === id));
+//   });
+// };
+
 import DataLoader from 'dataloader';
 
 export const makePostDataLoader = (getPosts) => {
   return new DataLoader(async (ids) => {
     const urlQuery = ids.join('&userId=');
-    const response = await getPosts('?userId=' + urlQuery);
-    const posts = await response.json();
+    const posts = await getPosts('?userId=' + urlQuery);
     return ids.map((id) => {
-      return posts.filter((post) => post.userId === id);
+      return posts.filter((posts) => posts.userId === id);
     });
   });
 };
