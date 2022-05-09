@@ -21,6 +21,10 @@ export class PostsApi extends RESTDataSource {
     });
   }
 
+  async createPost(postData) {
+    return createPostFn(postData, this);
+  }
+
   batchLoadByUserId(id) {
     return this.dataLoader.load(id);
   }
