@@ -50,3 +50,8 @@ mutation UPDATA_POST {
   }
 }
 
+# EX: 4
+mutation DELETE_POST {
+  deletePost(postId: "50")
+}
+
