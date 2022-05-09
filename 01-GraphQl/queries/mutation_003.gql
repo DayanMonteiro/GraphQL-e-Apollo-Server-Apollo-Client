@@ -10,3 +10,43 @@ mutation CREATE_POST {
     createdAt
   }
 }
+
+
+# EX: 2
+mutation CREATE_POST {
+  createPost(data: {
+    title: "O título"
+    body: "O conteúdo"
+    userId: "592"
+  }) {
+    id
+    title
+    body
+    user {
+      firstName
+    }
+    indexRef
+    createdAt
+  }
+}
+
+# EX: 3
+mutation UPDATA_POST {
+  updataPost(
+    postId: "50"
+    data: {
+    title: "Update - O título"
+    body: "O conteúdo"
+    userId: "592"
+  }) {
+    id
+    title
+    body
+    user {
+      firstName
+    }
+    indexRef
+    createdAt
+  }
+}
+
