@@ -30,7 +30,11 @@ mutation DELETE_POST {
 
 mutation CREATE_USER {
   createUser(
-    data: { firstName: "João", lastName: "Miranda", userName: "joao-miranda1" }
+    data: {
+      firstName: "Dayan"
+      lastName: "Monteiro"
+      userName: "dayan-monteiro-1"
+    }
   ) {
     id
     firstName
