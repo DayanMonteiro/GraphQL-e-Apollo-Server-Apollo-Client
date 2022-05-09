@@ -1,0 +1,12 @@
+mutation CREATE_POST {
+  createPost(id: "teste") {
+    id
+    title
+    body
+    user {
+      firstName
+    }
+    indexRef
+    createdAt
+  }
+}
